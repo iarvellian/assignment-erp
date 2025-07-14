@@ -1,7 +1,5 @@
 # ERP System
 
-## 📦 Backend (`./backend`)
-
 ### Description
 
 A simple Enterprise Resource Planning (ERP) system built with **Laravel 12**, providing a robust **role-based access control** (RBAC) structure for managing:
