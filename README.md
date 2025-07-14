@@ -71,45 +71,29 @@ $ php artisan serve   # http://127.0.0.1:8000
 
 ### Seeded via UserSeeder.php
 
-Super Admin:
-  Username: superadmin
-  Password: supersuper
+| Role        | Username     | Password     |
+| ----------- | ------------ | ------------ |
+| Super Admin | `superadmin` | `supersuper` |
+| Admin       | `admin`      | `adminadmin` |
+| User        | `user`       | `useruser`   |
 
-Admin:
-  Username: admin
-  Password: adminadmin
-
-User:
-  Username: user
-  Password: useruser
 
 ### API Overview
 
-# Authentication
-POST   /login                → public         → Authenticate and obtain token
-POST   /logout               → authenticated  → Logout current user
-
-# Dashboard
-GET    /dashboard            → authenticated  → View dashboard
-
-# Users (Super Admin only)
-GET    /users                → Super Admin    → List all users
-POST   /users                → Super Admin    → Create a new user
-PUT    /users/{id_user}      → Super Admin    → Update a user's details
-DELETE /users/{id_user}      → Super Admin    → Delete a user
-
-# Roles (Super Admin only)
-GET    /roles                → Super Admin    → List all roles
-POST   /roles                → Super Admin    → Create a new role
-
-# Clients
-GET    /clients              → All            → List all clients
-POST   /clients              → Admin+         → Create a new client
-
-# Orders
-GET    /orders               → All            → List all orders
-POST   /orders               → Admin+         → Create a new order
-
-# PDF Export
-GET    /orders/pdf/all       → All            → Download PDF for all orders
-GET    /orders/pdf/{id}      → All            → Download PDF for a specific order
+| Verb       | URI / Resource     | Role / Access       | Purpose                          |
+| ---------- | ------------------ | ------------------- | -------------------------------- |
+| **POST**   | `/login`           | public              | Authenticate and obtain token    |
+| **POST**   | `/logout`          | authenticated       | Logout current user              |
+| **GET**    | `/dashboard`       | authenticated       | View dashboard                   |
+| **GET**    | `/users`           | Super Admin         | List all users                   |
+| **POST**   | `/users`           | Super Admin         | Create a new user                |
+| **PUT**    | `/users/{id_user}` | Super Admin         | Update a user’s details          |
+| **DELETE** | `/users/{id_user}` | Super Admin         | Delete a user                    |
+| **GET**    | `/roles`           | Super Admin         | List all roles                   |
+| **POST**   | `/roles`           | Super Admin         | Create a new role                |
+| **GET**    | `/clients`         | All                 | List all clients                 |
+| **POST**   | `/clients`         | Admin / Super Admin | Create a new client              |
+| **GET**    | `/orders`          | All                 | List all orders                  |
+| **POST**   | `/orders`          | Admin / Super Admin | Create a new order               |
+| **GET**    | `/orders/pdf/all`  | All                 | Download PDF of all orders       |
+| **GET**    | `/orders/pdf/{id}` | All                 | Download PDF of a specific order |
