@@ -67,7 +67,7 @@ $ npm run dev
 
 # 9 Serve the app
 $ php artisan serve   # http://127.0.0.1:8000
-
+```
 
 ### Seeded via UserSeeder.php
 
